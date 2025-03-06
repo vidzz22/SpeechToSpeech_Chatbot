@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import '../public/styles.css';
 
 export default function Dashboard() {
   return (
@@ -8,6 +7,7 @@ export default function Dashboard() {
       <Head>
         <title>User Dashboard</title>
         <meta name="description" content="User dashboard with credits and profile" />
+        <link rel="stylesheet" href="/styles.css" />
       </Head>
       <header>
         <img src="/logo.png" alt="Platform Logo" className="logo" />

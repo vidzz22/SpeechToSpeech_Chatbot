@@ -1,21 +1,19 @@
-# Use an official Node runtime as a parent image
+# frontend/Dockerfile using npm
 FROM node:18-alpine
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy package files and install dependencies
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+# Copy package.json and install dependencies using npm
+COPY package.json ./
+RUN npm install
 
-# Copy the rest of your code into the container
+# Copy the rest of your code
 COPY . .
 
 # Build the Next.js app
-RUN yarn build
+RUN npm run build
 
-# Expose port 3000 for the app
 EXPOSE 3000
 
 # Start the Next.js server
-CMD ["yarn", "start"]
+CMD ["npm", "start"]

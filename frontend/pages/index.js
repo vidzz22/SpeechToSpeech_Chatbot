@@ -1,13 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
-import '../public/styles.css';
 
 export default function Home() {
   return (
     <div className="container">
       <Head>
         <title>Speech-to-Speech Chatbot</title>
-        <meta name="description" content="Chatbot interface" />
+        <meta name="description" content="Chat interface" />
+        <link rel="stylesheet" href="/styles.css" />
       </Head>
       <header>
         <img src="/logo.png" alt="Platform Logo" className="logo" />
