@@ -4,35 +4,24 @@ AI chatbot
 File structure
 
 SPEECHTOSPEECH_CHATBOT/  
-│── backend/                  # Backend (Node.js/FastAPI)  
-│   │── models/               # AI Models (Whisper, LLaMA 3.2, TTS)  
-│   │── routes/               # API Endpoints  
-│   │── services/             # Core Business Logic  
-│   │── utils/                # Helper Functions  
-│   │── app.py                # FastAPI Main Backend (Optional)  
-│   │── server.js             # Node.js Main Backend  
-│   │── Dockerfile            # Backend Dockerfile  
-│   │── .env                  # Backend Environment Variables  
-│   │── requirements.txt       # Python Dependencies (For FastAPI)  
-│   │── package.json           # Node.js Dependencies  
-│   └── README.md              # Backend Docs  
-│  
-│── frontend/                 # Frontend (Next.js)  
-│   │── components/           # Reusable UI Components  
-│   │── pages/                # Next.js Pages  
-│   │── public/               # Static Assets (Images, Icons)  
-│   │── styles/               # CSS & Tailwind Styles  
-│   │── utils/                # Helper Functions  
-│   │── Dockerfile            # Frontend Dockerfile  
-│   │── .env.local            # Frontend Environment Variables  
-│   │── package.json          # Frontend Dependencies  
-│   └── README.md             # Frontend Docs  
-│  
-│── database/                 # MongoDB & Database Configurations  
-│   │── models/               # MongoDB Schemas  
-│   │── config.js             # Database Connection  
-│   └── seed.js               # Initial Data Seeding  
-│  
-│── docker-compose.yml        # Docker Compose for Backend & Frontend  
-│── .gitignore                # Ignore Files for Git  
-│── README.md                 # Project Documentation  
+SPEECHTOSPEECH_CHATBOT/  
+├── docker-compose.yml         # Orchestrates frontend, backend, and MongoDB services
+├── .env                       # Global environment variables (e.g., DB URI, JWT secret)
+├── README.md
+│
+├── frontend/                  # Next.js frontend
+│   ├── Dockerfile             # Dockerfile for the Next.js app
+│   ├── package.json
+│   ├── next.config.js
+│   ├── public/                # Public assets
+│   │   ├── logo.png           # Platform logo
+│   │   └── styles.css         # CSS file for custom styling
+│   └── pages/
+│       ├── index.js           # Home page (chat interface, etc.)
+│       └── dashboard.js       # User dashboard (credits, profile, etc.)
+│
+└── backend/                   # FastAPI backend
+    ├── Dockerfile             # Dockerfile for the FastAPI app
+    ├── requirements.txt       # Python dependencies (FastAPI, uvicorn, pymongo, python-jose, etc.)
+    ├── main.py                # FastAPI application (routes for auth, STT, LLM, TTS, credits)
+    └── config.py              # Database & environment configuration (loads .env values)
